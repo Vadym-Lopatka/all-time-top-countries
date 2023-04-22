@@ -4,7 +4,7 @@
 
 (def what-i-need-to-do 
   #{
-    "fetch the amount of existed data periods (consider drop down on the page)"
+    "+ fetch the existed data periods (consider drop down on the page)"
     "fetch asked top by each period => should return coll of maps like {1 UK}" 
     "map coll of maps to coll of sets" 
     "find the all-time top via sets intersection"

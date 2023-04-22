@@ -4,7 +4,7 @@
  :aliases
  {:run-m {:main-opts ["-m" "Vadym-Lopatka.all-time-top-countries"]}
   :run-x {:ns-default Vadym-Lopatka.all-time-top-countries
-          :exec-fn greet
+          :exec-fn -main
           :exec-args {:name "Clojure"}}
   :build {:deps {io.github.seancorfield/build-clj
                  {:git/tag "v0.8.2" :git/sha "0ffdb4c"

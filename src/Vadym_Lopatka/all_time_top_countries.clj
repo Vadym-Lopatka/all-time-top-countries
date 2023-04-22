@@ -11,15 +11,17 @@
     })
 
 
-(def url "https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=2017")
+(def numbeo-url "https://www.numbeo.com/quality-of-life/rankings_by_country.jsp")
 
-(defn get-html-content [url]
-  (html/html-resource (java.net.URL. url)))
+(def numbeo-page-content (html/html-resource (java.net.URL. numbeo-url)))
 
-(defn find-the-tops []
-  (println (get-html-content url)))
+(defn find-available-data-periods [] 
+  (let [drop-down-content (html/select numbeo-page-content [[:form.changePageForm html/first-of-type] :select :option])
+        periods (map html/text drop-down-content)]
+    periods))
+
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (find-the-tops))
+  (println (find-available-data-periods)))

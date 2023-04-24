@@ -1,4 +1,4 @@
-(ns Vadym-Lopatka.numbeo-data.data-for-period
+(ns Vadym-Lopatka.numbeo.data-for-period
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as cs]))
 

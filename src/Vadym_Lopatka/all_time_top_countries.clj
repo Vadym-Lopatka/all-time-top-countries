@@ -1,11 +1,8 @@
 (ns Vadym-Lopatka.all-time-top-countries
   (:gen-class)
-  (:require [Vadym-Lopatka.numbeo-data.periods :as numbeo-period]
-            [Vadym-Lopatka.numbeo-data.data-for-period :as numbeo-data]
+  (:require [Vadym-Lopatka.numbeo.periods :as numbeo-period]
+            [Vadym-Lopatka.numbeo.data-for-period :as numbeo-data]
             [clojure.set :as set]))
-
-;; (defn take-top [amount countries]
-  ;; (take-last amount ordered-countries))
 
 (defn get-top-countries-of-all-periods [size-of-top]
   (let [periods (numbeo-period/fetch-available-data-periods)

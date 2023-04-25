@@ -6,7 +6,7 @@
 
 (defn get-top-countries-of-all-periods [size-of-top]
   (let [periods (period/fetch-available-data-periods)
-        period-to-countries (map countries/data-for-period periods)
+        period-to-countries (map countries/get-data-for-period periods)
         top-countries (take-last size-of-top period-to-countries)
         country-sets (vals top-countries)]
     

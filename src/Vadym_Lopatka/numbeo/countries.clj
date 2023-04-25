@@ -15,8 +15,13 @@
   [period] 
   (let [page (page-content (numbeo-period-url period numbeo-url))
         countries (map html/text (html/select page [:table#t2 :tbody :tr]))]
+    (println (str "PERIOD: " period))
     countries))
 
+;; ADD LOG
+;; RUN
+;; FIND WHY "-" symbol happens in countries data
+;; FIX all-countries-merg-problem
 
 (defn- to-countries-coll [raw-countries]
   (let [texted-raw-strings (html/text raw-countries)
@@ -24,6 +29,7 @@
         skipped-first-empty-string (rest splitted)
         countries-data (map #(cs/replace % #"\n " "") skipped-first-empty-string)]
 
+    (println countries-data)
     countries-data))
 
 (defn parse-number [numberAsStr]

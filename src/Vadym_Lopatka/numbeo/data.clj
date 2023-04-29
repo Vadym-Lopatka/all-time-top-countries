@@ -15,3 +15,27 @@
 ;; {2017 {302.9 Malaysia, 330.90000000000003 Vietnam, 345.09999999999997 Philippines, 387.09999999999997 Thailand, 402.19999999999993 Indonesia, 418.4 Ukraine, 422.3 Russia, 427.00000000000006 Belarus, 427.19999999999993 Sri Lanka, 438.5 Pakistan, 445.4 Singapore, 458.4 Egypt, 458.9 Lithuania, 468.2 Brazil, 471.0 India, 496.59999999999997 Iran, 499.0 Hungary, 505.59999999999997 Venezuela, 509.09999999999997 Serbia, 509.9 Colombia, 514.8 Mexico, 515.4000000000001 Romania, 517.1 Bulgaria, 517.8 Bosnia And Herzegovina, 519.3 North Macedonia, 526.8000000000001 China, 536.9 Estonia, 541.1 Lebanon, 547.6000000000001 Poland, 549.0 Slovakia, 554.6 Turkey, 555.1999999999999 Greece, 555.3000000000001 Argentina, 564.6 Chile, 568.9 Slovenia, 571.7 South Africa, 572.0000000000001 United Arab Emirates, 575.6999999999999 Czech Republic, 577.7 Jordan, 581.2 Hong Kong, 585.0999999999999 Qatar, 585.6 Portugal, 588.8 Canada, 589.6 Cyprus, 594.3000000000001 Ireland, 600.1999999999999 Sweden, 601.0 Saudi Arabia, 602.6 Italy, 612.8999999999999 Finland, 614.3 Norway, 618.6999999999999 Netherlands, 618.9 France, 625.4 Japan, 627.0 Taiwan, 628.7 Belgium, 630.8 United Kingdom, 630.9 New Zealand, 632.1999999999999 Australia, 634.6999999999999 United States, 638.3 Spain, 639.3000000000001 Austria, 647.8000000000001 Denmark, 648.0 Germany, 658.7 South Korea, 666.0 Israel, 671.8999999999999 Switzerland}}
 ;; {2016-mid {323.0 Vietnam, 325.49999999999994 Malaysia, 359.40000000000003 Philippines, 359.70000000000005 Thailand, 400.90000000000003 Indonesia, 418.09999999999997 Russia, 421.69999999999993 Ukraine, 430.8 Pakistan, 458.29999999999995 Singapore, 459.4 Brazil, 463.69999999999993 Lithuania, 478.4 Egypt, 484.1 India, 498.0 Iran, 500.5 Hungary, 514.5 Bosnia And Herzegovina, 515.1999999999999 Serbia, 517.7 Romania, 517.8 Colombia, 519.0 Bulgaria, 524.3 North Macedonia, 537.0 Estonia, 546.0 China, 548.5 Slovakia, 551.9999999999999 Poland, 555.2 Mexico, 562.4 Croatia, 564.9000000000001 Argentina, 565.2 Turkey, 570.2 Greece, 572.3 Chile, 576.9000000000001 United Arab Emirates, 577.5 Jordan, 581.3 South Africa, 585.8 Czech Republic, 596.1 Portugal, 605.1999999999999 Hong Kong, 610.3999999999999 Qatar, 612.4000000000001 Canada, 614.8 Ireland, 617.0 Sweden, 621.3 Finland, 629.8 Saudi Arabia, 635.5 Taiwan, 638.1999999999999 Norway, 641.3 Italy, 642.2 United States, 643.5999999999999 Belgium, 646.3 Austria, 648.8000000000001 United Kingdom, 650.1 Spain, 654.2000000000002 Germany, 654.4000000000001 Netherlands, 661.1 France, 661.2999999999998 New Zealand, 669.5999999999999 South Korea, 676.6999999999999 Israel, 693.5000000000001 Australia, 702.9999999999999 Denmark, 716.1999999999999 Japan, 743.3 Switzerland}}
 ;; {2016 {340.6 Malaysia, 389.4 Philippines, 397.8 Thailand, 403.5999999999999 Indonesia, 428.3 Russia, 429.4 Ukraine, 438.59999999999997 Pakistan, 463.8 Lithuania, 466.29999999999995 Brazil, 479.39999999999986 Singapore, 493.2 Egypt, 496.09999999999997 India, 503.70000000000005 Hungary, 504.80000000000007 Iran, 518.1 Serbia, 522.4 Bulgaria, 525.9000000000001 Romania, 527.3999999999999 Bosnia And Herzegovina, 532.4999999999999 Mexico, 536.8 North Macedonia, 537.8 Colombia, 554.8000000000001 China, 561.1999999999999 Poland, 575.5 Slovenia, 576.2 Turkey, 576.9 Croatia, 585.3000000000001 Chile, 586.1999999999999 United Arab Emirates, 588.2 Czech Republic, 590.5999999999999 Greece, 592.6999999999999 Argentina, 599.9 South Africa, 602.9000000000001 Portugal, 622.3 Ireland, 625.8 Canada, 629.4 Finland, 636.7 Hong Kong, 644.1999999999999 Sweden, 645.1 Saudi Arabia, 653.7 Belgium, 655.5 United States, 664.0999999999998 Austria, 667.9 Spain, 670.0 Norway, 673.4999999999999 United Kingdom, 673.9999999999999 France, 675.5999999999999 South Korea, 675.8000000000001 New Zealand, 683.1999999999999 Netherlands, 684.6999999999999 Germany, 695.0999999999999 Israel, 698.5 Australia, 718.3 Japan, 721.7 Denmark, 784.3000000000001 Switzerland}}
+
+
+;; (
+;;  ("Netherlands" "Denmark" "Japan" "Luxembourg" "Switzerland") 
+;;  ("Netherlands" "Denmark" "Japan" "Australia" "Switzerland")
+;;  ("Israel" "Australia" "Denmark" "Japan" "Switzerland")
+;;  ("Israel" "Australia" "Denmark" "Japan" "Switzerland")
+;;  ("Israel" "Australia" "Japan" "Denmark" "Switzerland")
+;;  ("Israel" "Australia" "Japan" "Denmark" "Switzerland")
+;;  ("Israel" "Australia" "Denmark" "Japan" "Switzerland")
+;;  ("Israel" "Australia" "Denmark" "Japan" "Switzerland")
+;;  ("Netherlands" "Australia" "Denmark" "Japan" "Switzerland")
+;;  ("Taiwan" "Australia" "Denmark" "Japan" "Switzerland")
+;;  ("Australia" "Taiwan" "Denmark" "Japan" "Switzerland")
+;;  ("Taiwan" "Israel" "Denmark" "Japan" "Switzerland")
+;;  ("Denmark" "Germany" "South Korea" "Israel" "Switzerland")
+;;  ("Israel" "Australia" "Denmark" "Japan" "Switzerland")
+;;  ("Israel" "Australia" "Japan" "Denmark" "Switzerland")
+;;  ("Finland" "Germany" "Saudi Arabia" "Denmark" "Switzerland")
+;;  ("Germany" "Qatar" "Japan" "Denmark" "Switzerland")
+;;  ("Norway" "Denmark" "Japan" "Qatar" "Switzerland")
+;;  ("Norway" "Germany" "Denmark" "Japan" "Switzerland")
+;;  ("Denmark" "Germany" "Norway" "Qatar" "Switzerland")
+;;  ("Australia" "Germany" "Norway" "Japan" "Switzerland"))

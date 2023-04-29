@@ -15,7 +15,6 @@
   [period] 
   (let [page (page-content (numbeo-period-url period numbeo-url))
         countries (map html/text (html/select page [:table#t2 :tbody :tr]))]
-    (println (str "PERIOD: " period))
     countries))
 
 ;; ADD LOG
@@ -29,14 +28,12 @@
         skipped-first-empty-string (rest splitted)
         countries-data (map #(cs/replace % #"\n " "") skipped-first-empty-string)]
 
-    (println countries-data)
     countries-data))
 
 (defn parse-number [numberAsStr]
   (try 
     (Double/parseDouble numberAsStr) 
     (catch Exception e
-      (println (str "number problem for: " e))
       0)))
 
 (defn- to-country-to-score-map [countries]
@@ -54,4 +51,42 @@
         period-to-countries {period scores}]
     
     period-to-countries))
+
+
+(defn get-countries-for-periods [periods]
+  (map get-data-for-period periods))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; (defn fetch-available-data-periods []
+;;   (let [drop-down-content (html/select (page-content numbeo-url) [[:form.changePageForm html/first-of-type] :select :option])
+;;         periods (mapcat #(html/attr-values % :value) drop-down-content)]
+;;     periods))
+
+;; (defn get-countries []
+;;   (let [periods (fetch-available-data-periods)
+;;         period-to-countries (map get-data-for-period periods)]
+;;     period-to-countries))
+
+;; (def c (get-countries))
+
+;; (def top (map (fn [[period score-to-country]] (take-last 5 score-to-country)) c))
+
+;; ;; (def v (map vals c))
+
+;; (def t (map (fn [[k vv]] (take-last 5 vv)) c))
+
+;; (doseq [[k v] c] (prn (take-last 5 v)))
+;; :subprotocol "mysql"
+;; :username "usr"
+;; :classname "com.mysql.jdbc.Driver"
+;; :subname "//100.100.100.100:3306/clo"
+;; :password "pwd"
+
+
+;; (vals (take-last 5 (first (vals (first cc)))))
+
+
+
 

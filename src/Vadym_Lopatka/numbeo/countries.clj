@@ -1,7 +1,6 @@
 (ns Vadym-Lopatka.numbeo.countries
   (:require [net.cgrand.enlive-html :as html]
-            [clojure.string :as cs]
-            [Vadym-Lopatka.numbeo.periods :as period]))
+            [clojure.string :as cs]))
 
 (def numbeo-url "https://www.numbeo.com/quality-of-life/rankings_by_country.jsp")
 
@@ -11,16 +10,10 @@
 (defn- numbeo-period-url [period url]
   (str url "?title=" period))
 
-(defn- raw-data-for-period 
-  [period] 
+(defn- raw-data-for-period [period] 
   (let [page (page-content (numbeo-period-url period numbeo-url))
         countries (map html/text (html/select page [:table#t2 :tbody :tr]))]
     countries))
-
-;; ADD LOG
-;; RUN
-;; FIND WHY "-" symbol happens in countries data
-;; FIX all-countries-merg-problem
 
 (defn- to-countries-coll [raw-countries]
   (let [texted-raw-strings (html/text raw-countries)
@@ -30,7 +23,7 @@
 
     countries-data))
 
-(defn parse-number [numberAsStr]
+(defn- parse-number [numberAsStr]
   (try 
     (Double/parseDouble numberAsStr) 
     (catch Exception e
@@ -47,46 +40,14 @@
   [period] 
   (let [data (raw-data-for-period period)
         data-as-coll (map to-countries-coll data)
-        scores (to-country-to-score-map data-as-coll)
-        period-to-countries {period scores}]
+        scores (to-country-to-score-map data-as-coll)]
     
-    period-to-countries))
+    {period scores}))
 
 
-(defn get-countries-for-periods [periods]
+(defn get-countries-for-periods 
+  "returns list of maps like {period to {contry-score to country-name}}"
+  [periods]
   (map get-data-for-period periods))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; (defn fetch-available-data-periods []
-;;   (let [drop-down-content (html/select (page-content numbeo-url) [[:form.changePageForm html/first-of-type] :select :option])
-;;         periods (mapcat #(html/attr-values % :value) drop-down-content)]
-;;     periods))
-
-;; (defn get-countries []
-;;   (let [periods (fetch-available-data-periods)
-;;         period-to-countries (map get-data-for-period periods)]
-;;     period-to-countries))
-
-;; (def c (get-countries))
-
-;; (def top (map (fn [[period score-to-country]] (take-last 5 score-to-country)) c))
-
-;; ;; (def v (map vals c))
-
-;; (def t (map (fn [[k vv]] (take-last 5 vv)) c))
-
-;; (doseq [[k v] c] (prn (take-last 5 v)))
-;; :subprotocol "mysql"
-;; :username "usr"
-;; :classname "com.mysql.jdbc.Driver"
-;; :subname "//100.100.100.100:3306/clo"
-;; :password "pwd"
-
-
-;; (vals (take-last 5 (first (vals (first cc)))))
-
-
 
 

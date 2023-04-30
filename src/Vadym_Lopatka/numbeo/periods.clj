@@ -10,6 +10,5 @@
   (html/html-resource (java.net.URL. url)))
 
 (defn fetch-available-data-periods []
-  (let [drop-down-content (html/select (page-content url) dropdown-periods-selector)
-        periods (mapcat #(html/attr-values % :value) drop-down-content)]
-    periods))
+  (let [drop-down-content (html/select (page-content url) dropdown-periods-selector)]
+    (mapcat #(html/attr-values % :value) drop-down-content)))

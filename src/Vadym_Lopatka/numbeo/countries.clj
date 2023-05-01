@@ -8,12 +8,16 @@
   [url period]
   (str url "?title=" period))
 
-(defn- raw-data-for-period [period] 
+(defn- raw-data-for-period 
+  "Fetch country data for given period"
+  [period] 
   (let [page (source/page-content (build-url source/url period))
         countries (map html/text (html/select page [:table#t2 :tbody :tr]))]
     countries))
 
-(defn- to-countries-coll [raw-countries]
+(defn- build-country-data-coll 
+  "Convert raw scrapped country data into country data collection"
+  [raw-countries]
   (let [texted-raw-strings (html/text raw-countries)
         splitted (cs/split texted-raw-strings #"\n    ")
         skipped-first-empty-string (rest splitted)
@@ -27,25 +31,23 @@
     (catch Exception e
       0)))
 
-(defn- to-country-to-score-map [countries]
+(defn- country-score [country-coll]
+  (reduce + (map (fn [numberAsStr] (parse-number numberAsStr)) (rest country-coll))))
+
+(defn- country-name [country-coll]
+  (first country-coll))
+
+(defn- to-country-to-score-map 
+  "Converts contry data coll (UK 0.11 200 33) into Map entry, {like 233.11 => UK}"
+  [countries]
   (into (sorted-map)
-        (map (fn [country-coll] (assoc {}
-                                       (reduce + (map (fn [numberAsStr] (parse-number numberAsStr)) (rest country-coll)))
-                                       (first country-coll))) countries)))
+        (map (fn [country-coll] (assoc {} (country-score country-coll) (country-name country-coll))) countries)))
 
 (defn get-data-for-period 
   "returns map {period {country-score1 country-name1, country-score2 country-name2}}"
   [period] 
   (let [data (raw-data-for-period period)
-        data-as-coll (map to-countries-coll data)
-        scores (to-country-to-score-map data-as-coll)]
+        countries-data-colls (map build-country-data-coll data)
+        score-to-country-map (to-country-to-score-map countries-data-colls)]
     
-    {period scores}))
-
-
-;; (defn get-countries-for-periods 
-;;   "returns list of maps like {period to {contry-score to country-name}}"
-;;   [periods]
-;;   (map get-data-for-period periods))
-
-
+    {period score-to-country-map}))

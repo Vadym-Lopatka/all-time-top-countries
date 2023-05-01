@@ -1,13 +1,11 @@
 (ns Vadym-Lopatka.numbeo.periods
-  (:require [net.cgrand.enlive-html :as html]))
+  (:require [net.cgrand.enlive-html :as html]
+            [Vadym-Lopatka.numbeo.source :as source]))
 
-(def url "https://www.numbeo.com/quality-of-life/rankings_by_country.jsp")
+(def periods-selector [[:form.changePageForm html/first-of-type] :select :option])
 
-(def dropdown-periods-selector [[:form.changePageForm html/first-of-type] :select :option])
-
-(defn page-content [url]
-  (html/html-resource (java.net.URL. url)))
-
-(defn fetch-available-data-periods []
-  (let [drop-down-content (html/select (page-content url) dropdown-periods-selector)]
+(defn fetch-periods []
+  (let [page-content (source/page-content source/url)
+        drop-down-content (html/select page-content periods-selector)]
+    
     (mapcat #(html/attr-values % :value) drop-down-content)))

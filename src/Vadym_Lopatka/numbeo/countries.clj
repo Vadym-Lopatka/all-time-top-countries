@@ -1,17 +1,15 @@
 (ns Vadym-Lopatka.numbeo.countries
   (:require [net.cgrand.enlive-html :as html]
-            [clojure.string :as cs]))
+            [clojure.string :as cs]
+            [Vadym-Lopatka.numbeo.source :as source]))
 
-(def numbeo-url "https://www.numbeo.com/quality-of-life/rankings_by_country.jsp")
-
-(defn- page-content [url]
-  (html/html-resource (java.net.URL. url)))
-
-(defn- numbeo-period-url [period url]
+(defn- build-url 
+  "Builds Numbeo url to specific data period"
+  [url period]
   (str url "?title=" period))
 
 (defn- raw-data-for-period [period] 
-  (let [page (page-content (numbeo-period-url period numbeo-url))
+  (let [page (source/page-content (build-url source/url period))
         countries (map html/text (html/select page [:table#t2 :tbody :tr]))]
     countries))
 
@@ -45,9 +43,9 @@
     {period scores}))
 
 
-(defn get-countries-for-periods 
-  "returns list of maps like {period to {contry-score to country-name}}"
-  [periods]
-  (map get-data-for-period periods))
+;; (defn get-countries-for-periods 
+;;   "returns list of maps like {period to {contry-score to country-name}}"
+;;   [periods]
+;;   (map get-data-for-period periods))
 
 

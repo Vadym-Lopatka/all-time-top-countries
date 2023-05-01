@@ -4,17 +4,19 @@
             [Vadym-Lopatka.numbeo.countries :as countries]
             [clojure.set :as set]))
 
-(defn get-all-periods-data []
-  (let [periods (period/fetch-available-data-periods)] 
-    (countries/get-countries-for-periods periods)))
+(defn get-data-for-all-periods []
+  (let [periods (period/fetch-periods)] 
+    
+    (map countries/get-data-for-period periods)))
 
-(defn find-all-time-top-countries [size-of-top]
-  (let [data (map first (map vals (get-all-periods-data)))
-        tops (map #(take-last size-of-top %) data)
-        country-names (map vals tops)]
-    (reduce set/intersection  (map set country-names))))
+(defn find-countries-always-meet-top [size-of-top]
+  (let [countries-colls (map first (map vals (get-data-for-all-periods)))
+        tops-colls (map #(take-last size-of-top %) countries-colls)
+        country-names-colls (map vals tops-colls)]
+    
+    (reduce set/intersection  (map set country-names-colls))))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println (find-all-time-top-countries 10)))
+  (println (find-countries-always-meet-top 20)))

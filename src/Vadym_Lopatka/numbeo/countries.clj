@@ -1,7 +1,9 @@
 (ns Vadym-Lopatka.numbeo.countries
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as cs]
-            [Vadym-Lopatka.numbeo.source :as source]))
+            [Vadym-Lopatka.numbeo.source :as source]
+            [taoensso.timbre :as log]
+            [Vadym-Lopatka.numbeo.periods :as period]))
 
 (defn- build-url 
   "Builds Numbeo url to specific data period"
@@ -44,8 +46,9 @@
         (map (fn [country-coll] (assoc {} (country-score country-coll) (country-name country-coll))) countries)))
 
 (defn get-data-for-period 
-  "returns map {period {country-score1 country-name1, country-score2 country-name2}}"
-  [period] 
+  "returns PersistentArrayMap: {period {country-score1 country-name1...}}"
+  [period]
+  (log/debug "Request to get data for period: " period)
   (let [data (raw-data-for-period period)
         countries-data-colls (map build-country-data-coll data)
         score-to-country-map (to-country-to-score-map countries-data-colls)]

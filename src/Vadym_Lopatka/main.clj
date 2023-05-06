@@ -1,4 +1,4 @@
-(ns Vadym-Lopatka.all-time-top-countries
+(ns Vadym-Lopatka.main
   (:gen-class)
   (:require [Vadym-Lopatka.numbeo.periods :as period]
             [Vadym-Lopatka.numbeo.countries :as countries]

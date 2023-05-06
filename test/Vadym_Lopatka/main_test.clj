@@ -1,5 +1,5 @@
 (ns Vadym-Lopatka.main-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.test :refer [deftest testing is]]
             [Vadym-Lopatka.main :refer :all]))
 
 (deftest a-test

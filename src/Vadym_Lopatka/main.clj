@@ -19,7 +19,7 @@
     (reduce set/intersection  (map set country-names-colls))))
 
 ;;TODO: 1. + Find logger
-;;TODO: 2. - Find out how to configure Timre lib to info log level
+;;TODO: 2. + Find out how to configure Timre lib to info log level
 ;;TODO: 3. - Consider incapsulate scrapping(not pure) functions
 ;;TODO: 4. - Add unit tests
 ;;TODO: 5. - Write clear and project-descriptive Readme file
@@ -29,5 +29,6 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
+  (log/set-min-level! :info)
   (log/info "App is starting with args: " args)
   (log/info "Found top countries are: " (find-countries-always-meet-top 10)))

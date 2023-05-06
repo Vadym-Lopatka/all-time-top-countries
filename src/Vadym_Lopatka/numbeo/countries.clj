@@ -1,7 +1,7 @@
 (ns Vadym-Lopatka.numbeo.countries
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as cs]
-            [Vadym-Lopatka.numbeo.source :as source]
+            [Vadym-Lopatka.numbeo.web-scrapping :as source]
             [taoensso.timbre :as log]
             [Vadym-Lopatka.numbeo.periods :as period]))
 

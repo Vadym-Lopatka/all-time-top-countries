@@ -1,6 +1,6 @@
 (ns Vadym-Lopatka.numbeo.periods
   (:require [net.cgrand.enlive-html :as html]
-            [Vadym-Lopatka.numbeo.source :as source]))
+            [Vadym-Lopatka.numbeo.web-scrapping :as source]))
 
 (def periods-selector [[:form.changePageForm html/first-of-type] :select :option])
 

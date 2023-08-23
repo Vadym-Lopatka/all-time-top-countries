@@ -31,4 +31,8 @@
   [& args]
   (log/set-min-level! :info)
   (log/info "App is starting with args: " args)
-  (log/info "Found top countries are: " (find-countries-always-meet-top 10)))
+  (let [topCountries (find-countries-always-meet-top 10)]
+    (log/info "Found top countries are:")
+    (doseq [country topCountries] 
+      (println country)))
+  )

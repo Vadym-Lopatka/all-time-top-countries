@@ -1,9 +1,8 @@
 (ns Vadym-Lopatka.numbeo.countries
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as cs]
-            [Vadym-Lopatka.numbeo.web-scrapping :as source]
-            [taoensso.timbre :as log]
-            [Vadym-Lopatka.numbeo.periods :as period]))
+            [Vadym-Lopatka.webscrapping.loader :as loader]
+            [taoensso.timbre :as log]))
 
 (defn- build-url 
   "Builds Numbeo url to specific data period"
@@ -13,7 +12,7 @@
 (defn- raw-data-for-period 
   "Fetch country data for given period"
   [period] 
-  (let [page (source/page-content (build-url source/url period))
+  (let [page (loader/get-page-as-resource (build-url loader/url period))
         countries (map html/text (html/select page [:table#t2 :tbody :tr]))]
     countries))
 

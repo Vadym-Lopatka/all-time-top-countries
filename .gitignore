@@ -1,8 +1,7 @@
 .calva/output-window/
 .classpath
-.clj-kondo/*
-.cpcache/*
-.lsp/*
+.clj-kondo/.cache
+.cpcache
 .DS_Store
 .eastwood
 .factorypath
@@ -70,4 +69,3 @@ package-lock.json
 !/package-lock.json
 /package.json
 *.log
-src/dev/shadow-css-index.edn

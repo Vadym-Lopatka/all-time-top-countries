@@ -1,18 +1,12 @@
 (ns Vadym-Lopatka.main
   (:gen-class)
-  (:require [Vadym-Lopatka.topcountries.periods :as period]
-            [Vadym-Lopatka.topcountries.countries :as countries]
+  (:require [Vadym-Lopatka.topcountries.countries :as countries]
             [clojure.set :as set]
             [taoensso.timbre :as log]))
 
-(defn get-data-for-all-periods []
-  (let [periods (period/fetch-periods)] 
-    (log/info "Found time periods: " periods)
-    (map countries/get-data-for-period periods)))
-
 (defn find-countries-always-meet-top [size-of-top]
   (log/info "Counting countries only among the TOP - " size-of-top)
-  (let [countries-colls (map first (map vals (get-data-for-all-periods)))
+  (let [countries-colls (map first (map vals (countries/get-data-for-all-periods)))
         tops-colls (map #(take-last size-of-top %) countries-colls)
         country-names-colls (map vals tops-colls)]
     

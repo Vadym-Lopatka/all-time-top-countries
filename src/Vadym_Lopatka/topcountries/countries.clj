@@ -1,20 +1,8 @@
 (ns Vadym-Lopatka.topcountries.countries
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as cs]
-            [Vadym-Lopatka.topcountries.webscrapping :as loader]
+            [Vadym-Lopatka.topcountries.numbeo :as numbeo]
             [taoensso.timbre :as log]))
-
-(defn- build-url 
-  "Builds Numbeo url to specific data period"
-  [url period]
-  (str url "?title=" period))
-
-(defn- raw-data-for-period 
-  "Fetch country data for given period"
-  [period] 
-  (let [page (loader/get-page-as-resource (build-url loader/url period))
-        countries (map html/text (html/select page [:table#t2 :tbody :tr]))]
-    countries))
 
 (defn- build-country-data-coll 
   "Convert raw scrapped country data into country data collection"
@@ -48,8 +36,13 @@
   "returns PersistentArrayMap: {period {country-score1 country-name1...}}"
   [period]
   (log/debug "Request to get data for period: " period)
-  (let [data (raw-data-for-period period)
+  (let [data (numbeo/fetch-raw-data-for-period period)
         countries-data-colls (map build-country-data-coll data)
         score-to-country-map (to-country-to-score-map countries-data-colls)]
     
     {period score-to-country-map}))
+
+(defn get-data-for-all-periods []
+  (let [periods (numbeo/fetch-periods)]
+    (log/info "Found time periods: " periods)
+    (map get-data-for-period periods)))

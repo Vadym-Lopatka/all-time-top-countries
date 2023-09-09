@@ -13,13 +13,13 @@ To find the answer we should do the next steps:
 - take the first N countries from the collection to get the top for the period;
 - determine which countries are present in all final lists (i.e. always presented at the top);
 
-The results of my little research is in this repository.
+## to run the project:
+    $ clojure -X:run-x
+    Countries that are always in top 10 are next: #{"Denmark" "Switzerland"}
 
-### Run the project and pass the size of top list, for example 15:
-
+## to run the project and pass the size of the top to consider = 15:
     $ clojure -X:run-x :top 15
-    Countries that are always in top 15 are next: 
-    #{"Australia" "Japan" "Denmark" "Switzerland" "Germany"}
+    Countries that are always in top 15 are next: #{"Australia" "Japan" "Denmark" "Switzerland" "Germany"}
 
 # Used tools:
 - Clojure

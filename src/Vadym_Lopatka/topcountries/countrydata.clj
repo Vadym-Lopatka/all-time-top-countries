@@ -1,4 +1,4 @@
-(ns Vadym-Lopatka.topcountries.countries
+(ns Vadym-Lopatka.topcountries.countrydata
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as cs]
             [Vadym-Lopatka.topcountries.numbeo :as numbeo]
@@ -27,22 +27,22 @@
   (first country-coll))
 
 (defn- to-country-to-score-map 
-  "Converts contry data coll (UK 0.11 200 33) into Map entry, {like 233.11 => UK}"
+  "Converts contry data coll (UK 0.11 200 33) into Map entry, like {233.11 UK}"
   [countries]
   (into (sorted-map)
         (map (fn [country-coll] (assoc {} (country-score country-coll) (country-name country-coll))) countries)))
 
-(defn get-data-for-period 
+(defn- get-country-data-for-period 
   "returns PersistentArrayMap: {period {country-score1 country-name1...}}"
   [period]
   (log/debug "Request to get data for period: " period)
-  (let [data (numbeo/fetch-raw-data-for-period period)
+  (let [data (numbeo/fetch-raw-country-data-for-period period)
         countries-data-colls (map build-country-data-coll data)
         score-to-country-map (to-country-to-score-map countries-data-colls)]
     
     {period score-to-country-map}))
 
-(defn get-data-for-all-periods []
+(defn for-all-periods []
   (let [periods (numbeo/fetch-periods)]
     (log/info "Found time periods: " periods)
-    (map get-data-for-period periods)))
+    (map get-country-data-for-period periods)))

@@ -1,7 +1,7 @@
 (ns Vadym-Lopatka.main
   (:gen-class)
-  (:require [Vadym-Lopatka.numbeo.periods :as period]
-            [Vadym-Lopatka.numbeo.countries :as countries]
+  (:require [Vadym-Lopatka.topcountries.periods :as period]
+            [Vadym-Lopatka.topcountries.countries :as countries]
             [clojure.set :as set]
             [taoensso.timbre :as log]))
 

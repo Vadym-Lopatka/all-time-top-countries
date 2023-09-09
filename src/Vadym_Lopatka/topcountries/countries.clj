@@ -1,7 +1,7 @@
-(ns Vadym-Lopatka.numbeo.countries
+(ns Vadym-Lopatka.topcountries.countries
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as cs]
-            [Vadym-Lopatka.webscrapping.loader :as loader]
+            [Vadym-Lopatka.topcountries.webscrapping :as loader]
             [taoensso.timbre :as log]))
 
 (defn- build-url 

@@ -1,4 +1,4 @@
-(ns Vadym-Lopatka.webscrapping.loader
+(ns Vadym-Lopatka.topcountries.webscrapping
   (:require [net.cgrand.enlive-html :as html]))
 
 (def url "https://www.numbeo.com/quality-of-life/rankings_by_country.jsp")

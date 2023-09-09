@@ -1,6 +1,6 @@
-(ns Vadym-Lopatka.numbeo.periods
+(ns Vadym-Lopatka.topcountries.periods
   (:require [net.cgrand.enlive-html :as html]
-            [Vadym-Lopatka.webscrapping.loader :as loader]))
+            [Vadym-Lopatka.topcountries.webscrapping :as loader]))
 
 (def periods-selector [[:form.changePageForm html/first-of-type] :select :option])
 

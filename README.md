@@ -14,8 +14,8 @@ To find the constant top countries we should do the next steps:
 - determine which countries are present in all final lists (i.e. always presented at the top);
 
 My discoveries:
-always meets top 10 - #{"Denmark" "Switzerland"};
-always meets top 15 - #{"Australia" "Japan" "Denmark" "Switzerland" "Germany"};
+- always meets top 10 - #{"Denmark" "Switzerland"};
+- always meets top 15 - #{"Australia" "Japan" "Denmark" "Switzerland" "Germany"};
 
 # Used tools:
 - Clojure

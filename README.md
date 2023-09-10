@@ -22,17 +22,14 @@ My discoveries:
 - Enlive web-scrapping library: https://github.com/cgrand/enlive
 
 # How to run the project
-1. Install Clojure: https://clojure.org/guides/install_clojure
-2. Clone project
+#### Install Clojure: https://clojure.org/guides/install_clojure
+#### Clone project
     $ git clone https://github.com/Vadym-Lopatka/all-time-top-countries.git
-3. Enter directory:
+#### Enter directory:
     $ cd all-time-top-countries
-4. Run the project:
-
-### to run with default top(10):
+#### Run the project:
     $ clojure -X:run-x
-
-## to run with custom top param. For example, 15:
+#### Run the project with custom top param. For example, 15:
     $ clojure -X:run-x :top 15
 
 

@@ -45,4 +45,4 @@
 (defn for-all-periods []
   (let [periods (numbeo/fetch-periods)]
     (log/info "Found time periods: " periods)
-    (map get-country-data-for-period periods)))
+    (pmap get-country-data-for-period periods)))

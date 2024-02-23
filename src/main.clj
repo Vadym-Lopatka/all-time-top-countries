@@ -1,4 +1,4 @@
-(ns Vadym-Lopatka.main
+(ns main
   (:gen-class)
   (:require [Vadym-Lopatka.topcountries.top :as top]
             [taoensso.timbre :as log]))

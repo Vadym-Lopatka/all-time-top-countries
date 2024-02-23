@@ -23,7 +23,7 @@ As Numbeo has no free API to fetch the data, I decided to satisfy my curiosity u
     $ git clone https://github.com/Vadym-Lopatka/all-time-top-countries.git
 #### Enter directory:
     $ cd all-time-top-countries
-#### Run the project:
+#### Run the project (default size of top = 10):
     $ clojure -X:run-x
 #### Run the project with custom top param. For example, 15:
     $ clojure -X:run-x :top 15

@@ -17,16 +17,13 @@ As Numbeo has no free API to fetch the data, I decided to satisfy my curiosity u
 - Clojure
 - Enlive web-scrapping library: https://github.com/cgrand/enlive
 
-### How to run the project
-#### Install Clojure: https://clojure.org/guides/install_clojure
-#### Clone project
-    $ git clone https://github.com/Vadym-Lopatka/all-time-top-countries.git
-#### Enter directory:
-    $ cd all-time-top-countries
-#### Run (default top size = 10):
-    $ clojure -X:run-x
-#### Run with specific top size 15:
-    $ clojure -X:run-x :top 15
+### How to:
+1. [Install Clojure:](https://clojure.org/guides/install_clojure/)
+2. `git clone https://github.com/Vadym-Lopatka/all-time-top-countries.git`
+3. `cd all-time-top-countries`
+4. Run: `clojure -X:run-x`
+5. Run with specific top size 15:
+    `clojure -X:run-x :top 15`
 
 ### My discoveries:
 1.  #{"Denmark" "Switzerland"} - always in top 10

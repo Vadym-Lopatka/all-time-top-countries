@@ -1,6 +1,6 @@
 (ns main
   (:gen-class)
-  (:require [Vadym-Lopatka.topcountries.top :as top]
+  (:require [countries.top :as top]
             [taoensso.timbre :as log]))
 
 (defn -main [& args]

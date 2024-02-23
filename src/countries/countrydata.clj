@@ -1,7 +1,7 @@
-(ns Vadym-Lopatka.topcountries.countrydata
+(ns countries.countrydata
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as cs]
-            [Vadym-Lopatka.topcountries.numbeo :as numbeo]
+            [countries.numbeo :as numbeo]
             [taoensso.timbre :as log]))
 
 (defn- build-country-data-coll 

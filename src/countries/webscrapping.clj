@@ -1,4 +1,4 @@
-(ns topcountries.webscrapping
+(ns countries.webscrapping
   (:require [net.cgrand.enlive-html :as html]))
 
 (defn get-page-as-resource [url]

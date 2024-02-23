@@ -1,27 +1,27 @@
 # all-time-top-countries
 
-The Numbeo which publishes twice a year tries to reflect the countries with the highest living standards. 
-It became interesting to find out which countries always meet the top of the index.
+From time to time, Numbeo publishes an index of the highest living standards per country.
+I was curious about which countries always meet the top of the index.
 
-As Numbeo has no free API to fetch the data - the only way to satisfy a curiosity is to play around using web-scrapping opportunities.
+As Numbeo has no free API to fetch the data, I decided to satisfy my curiosity using web-scrapping tooling and Clojure.
 
 To find the constant top countries we should do the next steps:
-- fetch the available periods that Numbeo contains;
+- fetch the available periods;
 - download the countries' data for each period;
-- process the raw data to get a map like {218,5 => USA, 220 => UK, 217 => GERMANY...etc};
-- sort the given map in descending order, so that the country with the highest index for the period goes first;
-- take the first N countries from the collection to get the top for the period;
-- determine which countries are present in all final lists (i.e. always presented at the top);
+- reduce the raw data to key-value pairs like {218,5 => USA, 220 => UK..};
+- sort the result, so highest index countries goes first;
+- take the first N countries from the result of the period;
+- only then, determine which countries are present in all final result lists;
 
-My discoveries:
-- always meets top 10 - #{"Denmark" "Switzerland"};
-- always meets top 15 - #{"Australia" "Japan" "Denmark" "Switzerland" "Germany"};
+### My discoveries:
+1.  #{"Denmark" "Switzerland"} - always in top 10 
+2. #{"Australia" "Japan" "Denmark" "Switzerland" "Germany"} - always in top 15
 
-# Used tools:
+### Used tools:
 - Clojure
 - Enlive web-scrapping library: https://github.com/cgrand/enlive
 
-# How to run the project
+### How to run the project
 #### Install Clojure: https://clojure.org/guides/install_clojure
 #### Clone project
     $ git clone https://github.com/Vadym-Lopatka/all-time-top-countries.git

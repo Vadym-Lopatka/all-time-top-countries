@@ -25,7 +25,7 @@ As Numbeo has no free API to fetch the data, I decided to satisfy my curiosity u
 5. Run with specific top size 15:
     `clojure -X:run-x :top 15`
 
-### My discoveries:
+### My findings:
 1.  #{"Denmark" "Switzerland"} - always in top 10
 2. #{"Australia" "Japan" "Denmark" "Switzerland" "Germany"} - always in top 15
 

@@ -18,7 +18,7 @@ As Numbeo has no free API to fetch the data, I decided to satisfy my curiosity u
 - Enlive web-scrapping library: https://github.com/cgrand/enlive
 
 ### How to:
-1. [Install Clojure:](https://clojure.org/guides/install_clojure/)
+1. [Install Clojure:](https://clojure.org/guides/install_clojure)
 2. `git clone https://github.com/Vadym-Lopatka/all-time-top-countries.git`
 3. `cd all-time-top-countries`
 4. Run: `clojure -X:run-x`

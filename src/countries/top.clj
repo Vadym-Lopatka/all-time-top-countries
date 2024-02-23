@@ -1,5 +1,5 @@
 (ns countries.top
-  (:require [countries.countrydata :as data]
+  (:require [countries.data :as data]
             [clojure.set :as set]))
 
 (defn find-countries-always-meet-top [size-of-top]

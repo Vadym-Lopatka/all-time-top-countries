@@ -1,4 +1,4 @@
-(ns countries.countrydata
+(ns countries.data
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as cs]
             [countries.numbeo :as numbeo]

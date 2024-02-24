@@ -46,3 +46,8 @@
   (let [periods (numbeo/fetch-periods)]
     (log/info "Found time periods: " periods)
     (pmap get-country-data-for-period periods)))
+
+(comment
+  (for-all-periods)
+  (time for-all-periods)
+  )

@@ -1,7 +1,7 @@
-(ns Vadym-Lopatka.topcountries.countrydata
+(ns countries.data
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as cs]
-            [Vadym-Lopatka.topcountries.numbeo :as numbeo]
+            [countries.numbeo :as numbeo]
             [taoensso.timbre :as log]))
 
 (defn- build-country-data-coll 
@@ -46,3 +46,8 @@
   (let [periods (numbeo/fetch-periods)]
     (log/info "Found time periods: " periods)
     (pmap get-country-data-for-period periods)))
+
+(comment
+  (for-all-periods)
+  (time for-all-periods)
+  )

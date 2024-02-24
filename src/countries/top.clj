@@ -1,5 +1,5 @@
-(ns Vadym-Lopatka.topcountries.top
-  (:require [Vadym-Lopatka.topcountries.countrydata :as data]
+(ns countries.top
+  (:require [countries.data :as data]
             [clojure.set :as set]))
 
 (defn find-countries-always-meet-top [size-of-top]
